@@ -1,9 +1,11 @@
-import { TableContainer, TableRow, TableHead, Table,  TableCell, TableBody, Paper } from '@mui/material'
+import { TableContainer, TableRow, TableHead, Table,  TableCell, TableBody, Paper,Button } from '@mui/material'
 import PropTypes from 'prop-types'
 import Row from './BookRow'
-
-function  BookTable ({bookList, delBook, editBook}) {
-
+import SelectAuthor from './SelectAuthor'
+function  BookTable ({bookList, delBook, editBook,filter}) {
+  const handClick = (author) => {
+    filter(author)
+  }
   const  renderBooks = () => {
     return  bookList.map((book)=>
          (<Row key={book.id} book={book} delBook={delBook} editBook={editBook}/>)
@@ -17,6 +19,9 @@ function  BookTable ({bookList, delBook, editBook}) {
           <TableCell align="right">Title</TableCell>
           <TableCell align="right">Date</TableCell>
           <TableCell align="left">Author</TableCell>
+          <TableCell align="left">
+            <SelectAuthor text={"Filter by author"} setAuthor={handClick}/>
+          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -31,7 +36,8 @@ function  BookTable ({bookList, delBook, editBook}) {
 BookTable.propTypes = {
   bookList: PropTypes.array,
   delBook: PropTypes.func,
-  editBook: PropTypes.func
+  editBook: PropTypes.func,
+  filter: PropTypes.func,
 }
 
 export default BookTable

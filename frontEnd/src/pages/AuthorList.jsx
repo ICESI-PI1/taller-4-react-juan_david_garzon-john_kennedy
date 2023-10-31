@@ -4,9 +4,10 @@ import axios from  '../config/axios'
 import AuthorTable from '../components/AuthorTable'
 import AuthorForm from '../components/AuthorForm'
 import { Context } from '../context/Context'
-
+import { useNavigate } from 'react-router-dom';
+import {  TableCell, Button} from '@mui/material'
 function AuthorList() {
-
+  const navigate = useNavigate();
   const [bookList, setAuthorList] = useState([])
   const [authorEdit, setAuthorEdit] = useState({id:"", title:"", nationality: ""})
 
@@ -19,6 +20,9 @@ function AuthorList() {
        setAuthorList(res.data)
     }catch(e){
       console.log(e)
+      if(e.status==401)
+        console.log("No autorizado")
+        navigate('/login')
     }
   }
 
@@ -66,9 +70,12 @@ function AuthorList() {
 
   return (
     <Context.Provider value={{authorEdit, setAuthorEdit}}>
-      
+      <TableCell align="left">
+      <Button variant="contained" color="success" onClick={()=>{navigate("/books")}}>Books</Button>
+      </TableCell>
       <AuthorForm addAuthor={addAuthor} authorEdit={authorEdit}/>
       <AuthorTable authorList={bookList} deleteAuthor={delAuthor} editAuthor={setAuthorEdit}/>
+
     </Context.Provider>
   )
 }

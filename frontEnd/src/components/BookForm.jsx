@@ -36,7 +36,7 @@ function AuthorForm({addBook, bookEdit}) {
     >
       <TextField label="title" variant="standard" value={title} onChange={(e)=>{setTitle(e.target.value)}}/>
       <TextField label="releaseDate" variant="standard" value={releaseDate} onChange={(e)=>{setReleaseDate(e.target.value)}}/>
-      <SelectAuthor setAuthor={setAuthor}/>
+      <SelectAuthor setAuthor={setAuthor} text={"Author"}/>
       <Button variant="contained" onClick={handleClick}>Save</Button>
     </Box>
   )

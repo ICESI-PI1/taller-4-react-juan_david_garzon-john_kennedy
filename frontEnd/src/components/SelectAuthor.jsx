@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import axios from  '../config/axios'
 import PropTypes from 'prop-types'
 
-export default function SelectLabels({setAuthor}) {
+export default function SelectLabels({text,setAuthor}) {
   const [authorList, setAuthorList] = React.useState([]);
 
   const handleChange = (event) => {
@@ -39,7 +39,7 @@ export default function SelectLabels({setAuthor}) {
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Author</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">{text}</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
