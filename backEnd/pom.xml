@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.16</version>
+		<version>3.0.12</version>
 		<relativePath/> 
 	</parent>
 	<groupId>com.techbulletinprime</groupId>
@@ -15,7 +15,7 @@
 	<description>Spring boot  crud example with data jpa and h2 in memory database</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
