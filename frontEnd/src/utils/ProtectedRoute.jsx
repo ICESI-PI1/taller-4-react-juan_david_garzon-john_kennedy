@@ -4,8 +4,7 @@ import {Navigate, useLocation} from "react-router-dom"
 const ProtectedRoute = ({children,isAuth}) => {
     let location = useLocation();
     console.log(isAuth)
-    const isAuthStorage = localStorage.getItem("isAuth")
-    if(!isAuthStorage) {
+    if(!isAuth) {
         return <Navigate to="/" state={{ from: location}} replace />
     }
  return children

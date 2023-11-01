@@ -12,6 +12,8 @@ import axios from '../config/axios';
 
 const defaultTheme = createTheme();
 
+
+
 export default function SignIn({setIsAuth}) {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -27,7 +29,6 @@ export default function SignIn({setIsAuth}) {
     console.log("Login exitoso:", res.headers.authorization);
     localStorage.setItem("token", res.headers.authorization);
     setIsAuth(true);
-    localStorage.setItem("isAuth", true)
     navigate('/books')
   })
   .catch((err) => {
