@@ -5,11 +5,10 @@ const initialState = {
         isFetching: false,
     },
     user:{
-  name:"",
+  name:"user",
   isAuthenticated:false
 },
 }
-
 
 const userSlice = createSlice({
   name: "user",
