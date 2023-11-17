@@ -1,6 +1,6 @@
 package com.edu.icesi.taller3.persistence.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +9,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private Date releaseDate;
+    private LocalDate releaseDate;
     @ManyToOne
     private Author author;
 }
